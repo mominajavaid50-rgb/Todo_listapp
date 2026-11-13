@@ -1,0 +1,526 @@
+
+/* =====================================
+   DAILYTRACK - ORIGINAL SCREENSHOT STYLE
+===================================== */
+
+/* 1. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #EEF5FC;
+    color: #1E293B;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 2. HEADER */
+
+header {
+    min-height: 155px;
+    padding: 25px 45px;
+    background: linear-gradient(110deg, #2870E8, #20B9E8);
+    color: white;
+    position: relative;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 3px;
+    padding-left: 55px;
+}
+
+header h1::before {
+    content: "✓";
+    position: absolute;
+    left: 17px;
+    top: 13px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.20);
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 25px;
+}
+
+header p {
+    padding-left: 55px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* 3. THEME BUTTON */
+
+#themeToggle {
+    position: absolute;
+    top: 19px;
+    right: 50px;
+    padding: 12px 22px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#themeToggle:hover {
+    background: white;
+    color: #2870E8;
+}
+
+/* 4. MAIN GRID LAYOUT */
+
+main {
+    max-width: 1100px;
+    width: calc(100% - 60px);
+    margin: -56px auto 40px;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: auto auto;
+    gap: 24px;
+    align-items: start;
+}
+
+/* 5. COMMON SECTION DESIGN */
+
+main section {
+    background: #FFFFFF;
+    padding: 26px;
+    border-radius: 19px;
+    box-shadow: 0 8px 30px rgba(30,64,175,0.07);
+}
+
+main section h2 {
+    font-size: 17px;
+    margin-bottom: 21px;
+    color: #1E293B;
+}
+
+main section h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: linear-gradient(#2870E8, #20B9E8);
+    border-radius: 5px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* 6. TASK INPUT SECTION */
+
+#taskInputSection {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#taskInput {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #D7E3F0;
+    border-radius: 12px;
+    background: #F3F8FD;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+#taskInput::placeholder,
+#searchInput::placeholder {
+    color: #94A3B8;
+}
+
+#taskInput:focus {
+    border-color: #3986E8;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+#addTask {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(110deg, #2465E5, #20B9E8);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 16px rgba(37,99,235,0.2);
+    transition: 0.3s;
+}
+
+#addTask:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(37,99,235,0.3);
+}
+
+/* 7. STATISTICS SECTION */
+
+#statisticsSection {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+#statisticsSection h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 5px;
+}
+
+#statisticsSection div {
+    text-align: center;
+    padding: 17px 5px;
+    border-radius: 13px;
+}
+
+#statisticsSection div:nth-of-type(1) {
+    background: #E2ECFC;
+}
+
+#statisticsSection div:nth-of-type(2) {
+    background: #D9F5EB;
+}
+
+#statisticsSection div:nth-of-type(3) {
+    background: #FFF1CF;
+}
+
+#statisticsSection h3 {
+    font-size: 11px;
+    color: #64748B;
+    margin-bottom: 8px;
+}
+
+#statisticsSection div p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#totalTasks {
+    color: #3476E5;
+}
+
+#completedTasks {
+    color: #10B981;
+}
+
+#pendingTasks {
+    color: #F59E0B;
+}
+
+/* 8. FILTER SECTION */
+
+#filterSection {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 8px;
+    align-items: center;
+}
+
+#filterSection h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 5px;
+}
+
+#searchInput {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #D7E3F0;
+    border-radius: 12px;
+    background: #F3F8FD;
+    outline: none;
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    border-color: #3986E8;
+}
+
+#filterSection button {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 9px;
+    background: #F1F6FC;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#filterSection button:hover {
+    background: #E2ECFC;
+}
+
+#filterSection button.active {
+    background: white;
+    color: #3476E5;
+    box-shadow: 0 3px 10px rgba(30,64,175,0.13);
+}
+
+/* 9. TASK LIST SECTION */
+
+#taskListSection {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 290px;
+}
+
+#taskList {
+    list-style: none;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    background: #F3F8FD;
+    border: 1px solid #E0EAF4;
+    border-radius: 11px;
+    transition: 0.3s;
+}
+
+#taskList li:hover {
+    background: #EAF3FC;
+}
+
+#taskList li span {
+    flex: 1;
+    min-width: 100px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+#taskList li.completed {
+    opacity: 0.65;
+}
+
+#taskList li.completed span {
+    text-decoration: line-through;
+    color: #64748B;
+}
+
+/* Task buttons */
+
+#taskList li button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#taskList li button:first-of-type {
+    background: #10B981;
+}
+
+#taskList li button:last-of-type {
+    background: #EF4444;
+}
+
+/* 10. EMPTY STATE */
+
+#emptyState {
+    display: none;
+}
+
+/* Empty message inside My Tasks card */
+
+#taskListSection:has(#taskList:empty)::after {
+    content: "▤\A\A No tasks yet! Add your first task.";
+    white-space: pre;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 195px;
+    background: #F3F8FD;
+    border: 2px dashed #D7E5F2;
+    border-radius: 17px;
+    color: #64748B;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* 11. FOOTER */
+
+footer {
+    background: linear-gradient(110deg, #2870E8, #20B9E8);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 35px;
+}
+
+footer h3 {
+    margin: 7px 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* 12. DARK THEME */
+
+body.dark-theme {
+    background: #111C30;
+    color: #E2E8F0;
+}
+
+body.dark-theme main section {
+    background: #1E2D43;
+    color: #E2E8F0;
+}
+
+body.dark-theme main section h2 {
+    color: #E2E8F0;
+}
+
+body.dark-theme #taskInput,
+body.dark-theme #searchInput {
+    background: #293B54;
+    color: white;
+    border-color: #435873;
+}
+
+body.dark-theme #statisticsSection div:nth-of-type(1) {
+    background: #30466A;
+}
+
+body.dark-theme #statisticsSection div:nth-of-type(2) {
+    background: #234E46;
+}
+
+body.dark-theme #statisticsSection div:nth-of-type(3) {
+    background: #55462B;
+}
+
+body.dark-theme #statisticsSection h3 {
+    color: #CBD5E1;
+}
+
+body.dark-theme #filterSection button {
+    background: #293B54;
+    color: #CBD5E1;
+}
+
+body.dark-theme #filterSection button.active {
+    background: #3476E5;
+    color: white;
+}
+
+body.dark-theme #taskList li {
+    background: #293B54;
+    border-color: #435873;
+}
+
+body.dark-theme #taskList li:hover {
+    background: #344B68;
+}
+
+body.dark-theme #taskListSection:has(#taskList:empty)::after {
+    background: #293B54;
+    border-color: #435873;
+    color: #CBD5E1;
+}
+
+/* 13. RESPONSIVE DESIGN */
+
+@media screen and (max-width: 850px) {
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        margin-top: -45px;
+        width: calc(100% - 35px);
+    }
+
+    #taskInputSection,
+    #statisticsSection,
+    #filterSection,
+    #taskListSection {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    #emptyState {
+        grid-column: 1;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    header {
+        padding: 85px 20px 65px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    #themeToggle {
+        top: 15px;
+        right: 15px;
+    }
+
+    main {
+        width: calc(100% - 25px);
+        gap: 16px;
+    }
+
+    main section {
+        padding: 20px;
+    }
+
+    #filterSection {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #filterSection h2,
+    #searchInput {
+        grid-column: 1 / -1;
+    }
+
+    #filterSection button {
+        padding: 11px 7px;
+        font-size: 12px;
+    }
+
+    #statisticsSection {
+        gap: 8px;
+    }
+
+    #statisticsSection div {
+        padding: 14px 4px;
+    }
+
+    #statisticsSection div p {
+        font-size: 25px;
+    }
+
+    #statisticsSection h3 {
+        font-size: 10px;
+    }
+}
